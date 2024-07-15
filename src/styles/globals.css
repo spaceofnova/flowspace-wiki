@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 1 26% 95%;
+    --foreground: 1 5% 0%;
+    --card: 1 26% 90%;
+    --card-foreground: 1 5% 10%;
+    --popover: 1 26% 95%;
+    --popover-foreground: 1 95% 0%;
+    --primary: 1 35.3% 67.3%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 1 26% 70%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: -37 26% 85%;
+    --muted-foreground: 1 5% 35%;
+    --accent: -37 26% 80%;
+    --accent-foreground: 1 5% 10%;
+    --destructive: 0 50% 30%;
+    --destructive-foreground: 1 5% 90%;
+    --border: 1 26% 50%;
+    --input: 1 26% 18%;
+    --ring: 1 35.3% 67.3%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 1 26% 5%;
+    --foreground: 1 5% 90%;
+    --card: 1 26% 0%;
+    --card-foreground: 1 5% 90%;
+    --popover: 1 26% 5%;
+    --popover-foreground: 1 5% 90%;
+    --primary: 1 35.3% 67.3%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 1 26% 10%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: -37 26% 15%;
+    --muted-foreground: 1 5% 60%;
+    --accent: -37 26% 15%;
+    --accent-foreground: 1 5% 90%;
+    --destructive: 0 50% 30%;
+    --destructive-foreground: 1 5% 90%;
+    --border: 1 26% 18%;
+    --input: 1 26% 18%;
+    --ring: 1 35.3% 67.3%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Magicawesomeness */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateY(-75px);
+  }
+}
+
+.content {
+  view-transition-name: content;
+}
+
+::view-transition-old(content) {
+  animation:
+    250ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    250ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+}
+
+::view-transition-new(content) {
+  animation: 250ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in;
+}
